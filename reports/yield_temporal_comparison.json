@@ -1,0 +1,18 @@
+{
+ "RandomForest (120 trees)": {
+  "R2_log": 0.9374,
+  "R2_yield": 0.973,
+  "MAE_yield": 9.669,
+  "median_abs_pct_error": 15.9,
+  "fit_seconds": 8,
+  "model_file_MB": 67.5
+ },
+ "HistGradientBoosting (chosen)": {
+  "R2_log": 0.9383,
+  "R2_yield": 0.8898,
+  "MAE_yield": 19.846,
+  "median_abs_pct_error": 16.4,
+  "fit_seconds": 2,
+  "model_file_MB": 2.4
+ }
+}

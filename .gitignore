@@ -1,0 +1,4 @@
+__pycache__/
+.pytest_cache/
+data/images/
+data/features_cache.npz

@@ -1,0 +1,75 @@
+{
+ "random_split": [
+  {
+   "model": "Ridge (baseline)",
+   "R2_log": 0.8571,
+   "R2_yield": 0.7656,
+   "MAE_yield": 34.162,
+   "median_abs_pct_error": 34.2
+  },
+  {
+   "model": "RandomForest (120 trees)",
+   "R2_log": 0.9679,
+   "R2_yield": 0.9646,
+   "MAE_yield": 10.681,
+   "median_abs_pct_error": 12.1
+  },
+  {
+   "model": "HistGradientBoosting (chosen)",
+   "R2_log": 0.9693,
+   "R2_yield": 0.88,
+   "MAE_yield": 16.057,
+   "median_abs_pct_error": 14.0
+  }
+ ],
+ "temporal_split": [
+  {
+   "model": "HistGradientBoosting (chosen)",
+   "R2_log": 0.9383,
+   "R2_yield": 0.8898,
+   "MAE_yield": 19.846,
+   "median_abs_pct_error": 16.4,
+   "train_rows": 14406,
+   "test_rows": 5283
+  }
+ ],
+ "permutation_importance": [
+  [
+   "Crop",
+   1.6796
+  ],
+  [
+   "State",
+   0.2287
+  ],
+  [
+   "Season",
+   0.0184
+  ],
+  [
+   "Crop_Year",
+   0.0144
+  ],
+  [
+   "Annual_Rainfall",
+   0.0121
+  ],
+  [
+   "Fert_per_ha",
+   0.0031
+  ],
+  [
+   "Pest_per_ha",
+   0.0018
+  ]
+ ],
+ "dataset": {
+  "rows_used": 19689,
+  "crops": 55,
+  "states": 30,
+  "years": [
+   1997,
+   2020
+  ]
+ }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Crop</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M5 27C5 14 12 6 27 5c0 14-7 21-20 22z" fill="#2D6A3F"/><path d="M6 26C12 19 17 14 24 8" stroke="#E8EDE6" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    <div>
+      <h1>Smart Crop</h1>
+      <p>Check a leaf for disease. Estimate what a field will yield.</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Tools">
+    <button role="tab" id="t-leaf" aria-selected="true" aria-controls="p-leaf">Check a leaf</button>
+    <button role="tab" id="t-yield" aria-selected="false" aria-controls="p-yield">Estimate yield</button>
+    <button role="tab" id="t-report" aria-selected="false" aria-controls="p-report">How well it works</button>
+  </nav>
+</header>
+
+<main>
+<!-- ============ LEAF ============ -->
+<section id="p-leaf" role="tabpanel" aria-labelledby="t-leaf" class="panel two">
+  <div class="input">
+    <h2>Leaf photo</h2>
+    <p class="hint">Use one leaf on a plain background, in even light, filling most of the frame. JPG or PNG, up to 6 MB.</p>
+    <label class="drop" id="drop" tabindex="0">
+      <input type="file" id="file" accept="image/png,image/jpeg">
+      <img id="preview" alt="Selected leaf preview" hidden>
+      <span id="dropText">Drop a photo here, or choose a file</span>
+    </label>
+    <div class="row">
+      <button class="primary" id="go-leaf" disabled>Check leaf</button>
+      <button class="quiet" id="clear-leaf" hidden>Remove photo</button>
+    </div>
+    <p class="err" id="err-leaf" role="alert" hidden></p>
+  </div>
+
+  <article class="label" id="label" aria-live="polite">
+    <p class="empty">Add a leaf photo and press <b>Check leaf</b>. The diagnosis appears here.</p>
+  </article>
+</section>
+
+<!-- ============ YIELD ============ -->
+<section id="p-yield" role="tabpanel" aria-labelledby="t-yield" class="panel two" hidden>
+  <form class="input" id="yform" novalidate>
+    <h2>Field details</h2>
+    <p class="hint">Fertiliser and pesticide are amounts per hectare. Choosing a crop fills typical values you can change.</p>
+    <div class="grid">
+      <label>Crop <select id="f-crop" required></select></label>
+      <label>State <select id="f-state" required></select></label>
+      <label>Season <select id="f-season" required></select></label>
+      <label>Year <input id="f-year" type="number" min="1990" max="2050" required></label>
+      <label>Area (hectares) <input id="f-area" type="number" min="0.01" step="any" required></label>
+      <label>Annual rainfall (mm) <input id="f-rain" type="number" min="50" max="7000" step="any" required></label>
+      <label>Fertiliser (kg per hectare) <input id="f-fert" type="number" min="0" max="2000" step="any" required></label>
+      <label>Pesticide (kg per hectare) <input id="f-pest" type="number" min="0" max="50" step="any" required></label>
+    </div>
+    <div class="row"><button class="primary" type="submit" id="go-yield">Estimate yield</button></div>
+    <p class="err" id="err-yield" role="alert" hidden></p>
+  </form>
+
+  <article class="label" id="ylabel" aria-live="polite">
+    <p class="empty">Fill in the field details and press <b>Estimate yield</b>.</p>
+  </article>
+</section>
+
+<!-- ============ REPORT ============ -->
+<section id="p-report" role="tabpanel" aria-labelledby="t-report" class="panel report" hidden>
+  <div id="report-body"><p class="empty">Loading results…</p></div>
+</section>
+</main>
+
+<footer>
+  <p>Leaf images: PlantVillage (Hughes &amp; Salathé, 2015). Yield records: Indian state-level crop statistics, 1997–2020. Advice is general guidance. Confirm with your local agriculture office before spraying.</p>
+</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+ "thresholds": {
+  "edge_min": 0.01041,
+  "edge_max": 0.14516,
+  "plant_min": 0.0276
+ },
+ "train_images": 11227,
+ "train_wrongly_rejected": 27,
+ "unseen_leaf_images": 144,
+ "unseen_wrongly_rejected": 0,
+ "non_leaf_inputs": 19,
+ "non_leaf_rejected": 15,
+ "non_leaf_passed": [
+  "photo: astronaut",
+  "photo: coffee",
+  "photo: chelsea",
+  "photo: rocket"
+ ]
+}
